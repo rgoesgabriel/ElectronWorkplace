@@ -1,0 +1,71 @@
+<div class="card">
+
+    <hr><br>
+
+    <div class="p-col-12 barra" style="display: flex; flex-wrap: wrap;">
+        <div class="p-col-1">
+            <p class="item1">{{'analista-barra.barra-onboarding' | transloco}}</p>
+            <h1 class="item2">Valor</h1>
+        </div>
+
+        <hr width="1" size="120">
+
+        <div class="p-col-1">
+            <p class="item1">{{'analista-barra.barra-devolucao' | transloco}}</p>
+            <h1 class="item2">Valor</h1>
+        </div>
+
+        <hr width="1" size="120">
+
+        <div class="p-col-1">
+            <p class="item1">{{'analista-barra.barra-categoria' | transloco}}</p>
+            <h1 class="item2">Valor</h1>
+        </div>
+
+        <hr width="1" size="120">
+
+        <div class="p-col-2">
+            <p class="item1">{{'analista-barra.barra-colaboradores' | transloco}}</p>
+            <h1 class="item2">Valor</h1>
+        </div>
+
+        <hr width="1" size="120">
+
+        <div class="p-col-2">
+            <p class="item1">{{'analista-barra.barra-custo' | transloco}}</p>
+            <h1 class="item2">Valor</h1>
+        </div>
+
+        <hr width="1" size="120">
+
+        <div class="p-col-4">
+            <p class="item1">{{'analista-barra.barra-equipamentos' | transloco}}</p>
+            <h1 class="item2">Valor</h1>
+        </div>
+    </div>
+
+    <br>
+    <hr><br>
+
+    <p-tabView  (onChange)="handleTabChange($event)">
+        <p-tabPanel  header="{{'analista-aprovacao.step-pedidos' | transloco}}">
+            <app-tabela abaAtiva="{{abaAtiva}}"></app-tabela>
+        </p-tabPanel>
+        <p-tabPanel header="{{'analista-aprovacao.step-separacao' | transloco}}">
+            <app-tabela abaAtiva="{{abaAtiva}}"></app-tabela>
+        </p-tabPanel>
+        <p-tabPanel header="{{'analista-aprovacao.step-espera' | transloco}}">
+            <app-tabela abaAtiva="{{abaAtiva}}"></app-tabela>
+        </p-tabPanel>
+        <p-tabPanel header="{{'analista-aprovacao.step-preparacao' | transloco}}">
+            <app-tabela abaAtiva="{{abaAtiva}}"></app-tabela>
+        </p-tabPanel>
+        <p-tabPanel header="{{'analista-aprovacao.step-envio' | transloco}}">
+            <app-tabela abaAtiva="{{abaAtiva}}"></app-tabela>
+        </p-tabPanel>
+        <p-tabPanel header="{{'analista-aprovacao.step-entregue' | transloco}}">
+            <app-tabela abaAtiva="{{abaAtiva}}"></app-tabela>
+        </p-tabPanel>
+        
+    </p-tabView>
+</div>

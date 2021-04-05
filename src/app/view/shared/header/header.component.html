@@ -1,0 +1,42 @@
+<div class="p-col-12 header">
+    <div class="p-grid">
+        <div class="p-col-3">
+            <div style="margin: 2% 0%;">
+                <button pButton type="button" (click)="setectLanguage()" icon="pi pi-bars"
+                    pTooltip="{{'header.selectLanguage' | transloco}}" tooltipPosition="bottom"></button>
+
+            </div>
+        </div>
+        <div class="p-col-6">
+            <h2 class="texto">
+                <img class="header-img" src="../assets/img/logo.png">
+            </h2>
+        </div>
+        <div class="p-col-3">
+            <div style="text-align: end; margin: 2% 0%;">
+                <button pButton class="btn-sair" type="button" icon="pi pi-sign-out" iconPos="left" (click)="logout()"
+                    pTooltip="{{'header.signout' | transloco}}" tooltipPosition="bottom"></button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<p-sidebar [(visible)]="sideBar" position="left" [baseZIndex]="10000" class="header">
+
+    <br>
+    <h3 class="texto2">{{'header.hello' | transloco}}</h3>
+    <br>
+
+    <div>
+        <button class="btn-language" pButton type="button" icon="pi pi-globe" label="BR"
+            (click)="setLanguageBr()"></button>
+
+        <button class="btn-language" pButton type="button" icon="pi pi-globe" label="ES"
+            (click)="setLanguageEs()"></button>
+
+        <button class="btn-language" pButton type="button" icon="pi pi-globe" label="EN"
+            (click)="setLanguageEn()"></button>
+    </div>
+
+</p-sidebar>

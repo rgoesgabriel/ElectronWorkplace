@@ -1,0 +1,190 @@
+{
+    "header": {
+        "hello": "Olá!",
+        "selectLanguage": "Idioma",
+        "signout": "Sair",
+        "language": "Mudar idioma para - "
+    },
+    "footer": {},
+    "menu": {},
+    "login": {
+        "welcome": "Olá! Seja bem-vindo! Aqui você poderá identificar-se onde estiver, de forma virtual. Seu crachá de identificação e seu cartão de visitas estão aqui à sua disposição.",
+        "email": "E-mail",
+        "password": "Senha",
+        "login": "Entrar",
+        "loading": "Entrando",
+        "username": "Usuário",
+        "copyright": "Todos os direitos reservados.",
+        "language": "Mudar idioma para - "
+    },
+    "home": {},
+    "cards": {
+        "welcome": "Bem-Vindo",
+        "item-diretor": "Diretor",
+        "item-gestor": "Gestor",
+        "item-analista": "Analista",
+        "item-gestao-usuario": "Gestão de usuários"
+    },
+    "aprovacao": {
+        "step-aguardando": "Aguardando aprovação",
+        "return": "Voltar",
+        "review": "Revisar",
+        "no-item": "Nenhum colaborador encontrado."
+    },
+    "aprovacao-detail": {
+        "info-review": "Selecione os itens que gostaria que fossem revisados.",
+        "info-edit": "Informe abaixo os motivos da revisão.",
+        "radio-cost": "Custos",
+        "radio-adequacy": "Adequação ao cargo",
+        "radio-stock": "Estoque",
+        "radio-other": "Outros motivos",
+        "observation": "Observação",
+        "phone": "Celular",
+        "mobile-plane": "Plano móvel",
+        "equipments": "Equipamentos",
+        "licenses": "Licenças e Softwares",
+        "total": "Total",
+        "approve": "Aprovar",
+        "review": "Revisar",
+        "advance": "Avançar",
+        "return": "Voltar",
+        "cancel": "Cancelar",
+        "submit": "Enviar"
+    },
+    "gestor-aprovacao": {
+        "step-vaga": "Vaga aberta",
+        "step-analise": "Em análise",
+        "step-espera": "Em espera",
+        "step-preparacao": "Em preparação",
+        "step-envio": "Em envio",
+        "step-entregue": "Entregue"
+    },
+    "gestor-tabela": {
+        "return": "Voltar",
+        "review": "Revisar",
+        "no-item": "Nenhum colaborador encontrado."
+    },
+    "gestor-detail": {
+        "info-review": "Selecione os itens que gostaria que fossem revisados.",
+        "info-edit": "Informe abaixo os motivos da revisão.",
+        "phone": "Celular",
+        "radio-cost": "Custos",
+        "radio-adequacy": "Adequação ao cargo",
+        "radio-stock": "Estoque",
+        "radio-other": "Outros motivos",
+        "observation": "Observação",
+        "mobile-plane": "Plano móvel",
+        "equipments": "Equipamentos",
+        "licenses": "Licenças e Softwares",
+        "total": "Total",
+        "return": "Voltar",
+        "review": "Revisar",
+        "approve": "Aprovar",
+        "advance": "Avançar",
+        "cancel": "Cancelar",
+        "submit": "Enviar",
+        "add-phone": "Adicionar celular",
+        "add-plan": "Adicionar plano móvel"
+    },
+    "gestor-detail-info": {
+        "modify-equip": "Alterar Equipamento",
+        "return": "Voltar",
+        "personal-info": "Informações pessoais",
+        "position": "Vaga",
+        "equip-requested": "Equipamentos solicitados",
+        "equip-denied": "Equipamentos negados"
+    },
+    "gestor-equip": {
+        "add": "Adicionar equipamento",
+        "remove": "Remover item"
+    },
+    "analista-barra": {
+        "barra-onboarding": "Onboarding",
+        "barra-devolucao": "Devoluções",
+        "barra-categoria": "Categorias",
+        "barra-colaboradores": "Colaboradores",
+        "barra-custo": "Custo médio",
+        "barra-equipamentos": "Total de equipamentos"
+    },
+    "analista-aprovacao": {
+        "step-pedidos": "Pedidos em aberto",
+        "step-separacao": "Em separação",
+        "step-espera": "Em espera",
+        "step-preparacao": "Em preparação",
+        "step-embalagem": "Embalagem",
+        "step-plano": "Plano de envio",
+        "step-envio": "Em envio",
+        "step-entregue": "Assinatura do termo"
+    },
+    "analista-tabela": {
+        "return": "Voltar",
+        "review": "Revisar",
+        "no-item": "Nenhum colaborador encontrado.",
+        "ticket-deferred": "Chamado atendido",
+        "ticket-on-time": "Chamado no prazo",
+        "ticket-on-hold": "Chamado em espera",
+        "ticket-delayed": "Chamado atrasado"
+    },
+    "analista-detail": {
+        "info-review": "Selecione os itens que gostaria que fossem revisados.",
+        "info-edit": "Informe abaixo os motivos da revisão.",
+        "phone": "Celular",
+        "radio-cost": "Custos",
+        "radio-adequacy": "Adequação ao cargo",
+        "radio-stock": "Estoque",
+        "radio-other": "Outros motivos",
+        "observation": "Observação",
+        "mobile-plane": "Plano móvel",
+        "equipments": "Equipamentos",
+        "licenses": "Licenças e Softwares",
+        "total": "Total",
+        "return": "Voltar",
+        "review": "Revisar",
+        "approve": "Aprovar",
+        "advance": "Avançar",
+        "cancel": "Cancelar",
+        "submit": "Enviar",
+        "add-phone": "Adicionar celular",
+        "add-plan": "Adicionar plano móvel"
+    },
+    "analista-detail-info": {
+        "modify-equip": "Alterar Equipamento",
+        "return": "Voltar",
+        "personal-info": "Informações pessoais",
+        "position": "Vaga",
+        "equip-requested": "Equipamentos solicitados",
+        "equip-denied": "Equipamentos negados",
+        "equip-sending": "Equipamentos a enviar"
+    },
+    "analista-equip": {
+        "add": "Adicionar equipamento",
+        "remove": "Remover item"
+    },
+    "cadastro": {
+        "step-gestao": "Gestão de usuário",
+        "return": "Voltar",
+        "update": "Atualizar",
+        "options": "Opções",
+        "no-item": "Nenhum colaborador encontrado.",
+        "no-item-error": "Não foi possível retornar informações.",
+        "authorization": "Perfil",
+        "change-authorization": "Mudar autorização",
+        "add-button": "Adicionar",
+        "cancel-button": "Cancelar",
+        "user": "Usuário",
+        "add-label-user": "Adicionar usuário",
+        "edit-label-user": "Editar usuário",
+        "delete-label-user": "Deletar usuário",
+        "delete-label-alert-user": "Você tem certeza que deseja deletar esse usuário?",
+        "profile": "Perfil",
+        "name": "Nome",
+        "matricula": "Matrícula",
+        "celula": "Célula",
+        "cargo": "Cargo",
+        "associate-director": "Diretor associado",
+        "modulo-diretor": "Módulo diretor",
+        "modulo-gestor": "Módulo gestor",
+        "modulo-analista": "Módulo analista",
+        "modulo-gestao": "Módulo gestão"
+    }
+}

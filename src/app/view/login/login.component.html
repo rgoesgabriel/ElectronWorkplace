@@ -1,0 +1,68 @@
+<div class="background">
+  <p-toast></p-toast>
+
+  <br>
+
+  <div class="texto">
+    <img src="../assets/img/logo.png">
+    <p class="titulo-app">{{'login.welcome' | transloco}}</p>
+  </div>
+
+  <div class="container">
+
+    <form [formGroup]="loginForm">
+
+      <div class="container-menu">
+
+        <div class="ui-g ui-fluid">
+          <div class="ui-g-12 ui-md-12">
+            <h4>Login</h4>
+            <label for="login">{{'login.username' | transloco}}</label><br>
+            <input id="login" type="text" pInputText formControlName="username"
+              placeholder="{{'login.username' | transloco}}" required minlength="4" maxlength="20">
+          </div>
+
+          <br>
+
+          <div class="ui-g-12 ui-md-12">
+            <label for="senha">{{'login.password' | transloco}}</label><br>
+            <input id="senha" type="password" pInputText formControlName="password"
+              placeholder="{{'login.password' | transloco}}" required minlength="4" maxlength="30">
+          </div>
+        </div>
+
+        <p class="texto2">Copyright © {{ano}} <strong> <u pTooltip="Worplace" tooltipPosition="bottom">Worplace</u>
+          </strong>. {{'login.copyright' | transloco}}</p>
+
+        <br>
+
+        <div style="text-align: center;">
+          <button *ngIf="!hasToken" type="submit" pButton (click)="fazerLogin()" label="{{'login.login' | transloco}}"
+            [disabled]="!loginForm.valid"></button>
+
+          <button *ngIf="hasToken" pButton type="submit" icon="pi pi-spin pi-spinner"
+            label="{{'login.loading' | transloco}}"></button>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn-language" pButton type="button" icon="pi pi-globe" label="BR"
+          pTooltip="{{'login.language' | transloco}}BR" tooltipPosition="bottom" (click)="setLanguageBr()"></button>
+
+        <button class="btn-language" pButton type="button" icon="pi pi-globe" label="ES"
+          pTooltip="{{'login.language' | transloco}}ES" tooltipPosition="bottom" (click)="setLanguageEs()"></button>
+
+        <button class="btn-language" pButton type="button" icon="pi pi-globe" label="EN"
+          pTooltip="{{'login.language' | transloco}}EN" tooltipPosition="bottom" (click)="setLanguageEn()"></button>
+        <!-- <div *transloco="let text">
+          <p>{{'login.welcome' | transloco}}</p>
+          <p>{{text('login.welcome')}}</p>
+        </div> -->
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

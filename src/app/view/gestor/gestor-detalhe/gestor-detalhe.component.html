@@ -1,0 +1,352 @@
+<ng-template [ngIf]="isDetail" [formGroup]="detailForm">
+    <p-table>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>{{colaborador? colaborador.cargo : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.localidade : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.celula : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.cliente : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.kit : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.investimento : 'Nada'}}</th>
+            </tr>
+        </ng-template>
+    </p-table>
+    
+
+    <hr>
+
+    <p *ngIf="isReview" style="text-align: left; padding-left: 95px; line-height: 20px; font-size: 14px;">
+        {{'gestor-detail.info-review' | transloco}}
+    </p>
+
+    <p *ngIf="isAdvanced" style="text-align: left; padding-left: 95px; line-height: 20px; font-size: 14px;">
+        {{'gestor-detail.info-edit' | transloco}}
+    </p>
+
+    <hr *ngIf="isReview || isAdvanced">
+
+    <div class="p-col-12" *ngIf="isCelular"  style="padding-bottom: 0;">
+        <div class="p-grid" style="text-align: left;">
+
+            <div class="p-col-1" style="width: 5%;" *ngIf="isReview">
+                <h1 style="text-align: center;">
+                    <p-checkbox (onChange)="getSelectItem($event)" formControlName="celular" binary="true"
+                        inputId="binary">
+                    </p-checkbox>
+                </h1>
+            </div>
+
+            <div class="p-col-1" style="text-align: center;">
+                <h1>
+                    <img style="text-align: center; vertical-align: middle;"
+                        src="../../../../assets/img/icon_celular.png">
+                </h1>
+            </div>
+            <div class="p-col-5">
+                <b>{{'gestor-detail.phone' | transloco}}</b>
+                <p style="padding-left: 3px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+            <div class="p-col-3">
+                <p> Parcela </p>
+            </div>
+            <div class="p-col-2">
+                <p> Teste </p>
+            </div>
+
+        </div>
+
+        <div class="p-col-12" *ngIf="isAdvanced && isCelular" style="padding-top: 0;">
+            
+            <app-equipamento cel="{{isCelular}}"></app-equipamento>
+
+            <br>
+            <div class="p-grid">
+                <div class="p-col-1"></div>
+                <div class="p-col-11" style="text-align: left;">
+                    <textarea (keyup)="validateInput()"placeholder="{{'gestor-detail.observation' | transloco}}" 
+                        rows="5" cols="150" pInputTextarea
+                        ></textarea>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <hr style="border: none;border-bottom: 2px dashed;" *ngIf="isCelular">
+
+    <div class="p-col-12" *ngIf="isPlano">
+        <div class="p-grid" style="text-align: left;">
+
+            <div class="p-col-1" style="width: 5%;" *ngIf="isReview">
+                <h1 style="text-align: center;">
+                    <p-checkbox (onChange)="getSelectItem($event)" formControlName="plano" binary="true"
+                        inputId="binary">
+                    </p-checkbox>
+                </h1>
+            </div>
+
+            
+
+            <div class="p-col-1" style="text-align: center;">
+                <h1>
+                    <img style="text-align: center; vertical-align: middle;"
+                        src="../../../../assets/img/icon_plano.png">
+                </h1>
+            </div>
+            <div class="p-col-5">
+                <b>{{'gestor-detail.mobile-plane' | transloco}}</b>
+                <p style="padding-left: 3px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+            <div class="p-col-3">
+                <p> Parcela </p>
+            </div>
+            <div class="p-col-2">
+                <p> Teste </p>
+            </div>
+
+        </div>
+
+        <div class="p-col-12" *ngIf="isAdvanced && isPlano " style="padding-top: 0;">
+            
+            <app-equipamento plano="{{isPlano}}"></app-equipamento>
+
+            <br>
+            <div class="p-grid">
+                <div class="p-col-1"></div>
+                <div class="p-col-11" style="text-align: left;">
+                    <textarea (keyup)="validateInput()" placeholder="{{'gestor-detail.observation' | transloco}}"
+                    rows="5" cols="150" pInputTextarea
+                    ></textarea>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <hr style="border: none;border-bottom: 2px dashed;" *ngIf="isPlano">
+
+    <div class="p-col-12" *ngIf="isEquipamento">
+        <div class="p-grid" style="text-align: left;">
+
+            <div class="p-col-1" style="width: 5%;" *ngIf="isReview">
+                <h1 style="text-align: center;">
+                    <p-checkbox (onChange)="getSelectItem($event)" formControlName="equipamentos" binary="true"
+                        inputId="binary"></p-checkbox>
+                </h1>
+            </div>
+
+            <div class="p-col-1" style="text-align: center;">
+                <h1>
+                    <img style="text-align: center; vertical-align: middle;" src="../../../../assets/img/icon_eqpt.png">
+                </h1>
+            </div>
+            <div class="p-col-5">
+                <b>{{'gestor-detail.equipments' | transloco}}</b>
+                <p style="padding-left: 3px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+            <div class="p-col-3">
+                <p> Parcela </p>
+            </div>
+            <div class="p-col-2">
+                <p> Teste </p>
+            </div>
+        </div>
+
+        <div class="p-col-12" *ngIf="isAdvanced && isEquipamento" style="padding-top: 0;">
+            
+            <app-equipamento equip="{{isEquipamento}}"></app-equipamento>
+
+
+            <br>
+            <div class="p-grid">
+                <div class="p-col-1"></div>
+                <div class="p-col-11" style="text-align: left;">
+                    <textarea (keyup)="validateInput()"
+                        placeholder="{{'gestor-detail.observation' | transloco}}"
+                        rows="5" cols="150" pInputTextarea
+                        ></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr style="border: none;border-bottom: 2px dashed;" *ngIf="isEquipamento">
+
+    <div class="p-col-12" *ngIf="isLicensa">
+        <div class="p-grid" style="text-align: left;">
+
+            <div class="p-col-1" style="width: 5%;" *ngIf="isReview">
+                <h1 style="text-align: center;">
+                    <p-checkbox (onChange)="getSelectItem($event)" formControlName="licensa" binary="true"
+                        inputId="binary">
+                    </p-checkbox>
+                </h1>
+            </div>
+
+            <div class="p-col-1" style="text-align: center;">
+                <h1>
+                    <img style="text-align: center; vertical-align: middle;"
+                        src="../../../../assets/img/icon_softwares.png">
+                </h1>
+            </div>
+            <div class="p-col-5">
+                <b>{{'gestor-detail.licenses' | transloco}}</b>
+                <p style="padding-left: 3px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+            <div class="p-col-3">
+                <p> Parcela </p>
+            </div>
+            <div class="p-col-2">
+                <p> Teste </p>
+            </div>
+        </div>
+
+        <div class="p-col-12" *ngIf="isAdvanced && isLicensa" style="padding-top: 0;">
+            
+            <app-equipamento license="{{isLicensa}}"></app-equipamento>
+
+            <br>
+            <div class="p-grid">
+                <div class="p-col-1"></div>
+                <div class="p-col-11" style="text-align: left;">
+                    <textarea (keyup)="validateInput()"
+                        placeholder="{{'gestor-detail.observation' | transloco}}"
+                        rows="5" cols="150" pInputTextarea></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr style="border: none;border-bottom: 2px dashed;" *ngIf="isLicensa">
+
+    <div class="p-col-12">
+        <div class="p-grid" style="text-align: left;">
+            <div class="p-col-1" style="width: 5%;" *ngIf="isReview"></div>
+            <div class="p-col-6" style="display: flex;">
+                <div class="p-col-2"></div>
+                <div *ngIf="mostrarAviso()">
+                    <p-messages [(value)]="msg" [enableService]="false"></p-messages>
+                </div>
+            </div>
+            <div class="p-col-3">
+                <p>
+                    <b>{{'gestor-detail.total' | transloco}}</b>
+                </p>
+            </div>
+            <div class="p-col-2">
+                <p>
+                    <b> Teste </b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <br>
+
+    <!-- <b>
+        {{detailForm.value | json}}
+    </b> -->
+
+    <div class="p-col-12" *ngIf="!isReview && !isAdvanced">
+        <div class="p-grid">
+            <div class="p-col-9">
+                <div style="text-align: start;">
+                    <button pButton class="btn-white" type="button" label="{{'gestor-detail.return' | transloco}}"
+                        icon="pi pi-chevron-left" (click)="voltarListagem()"
+                        pTooltip="{{'gestor-detail.return' | transloco}}" tooltipPosition="bottom"></button>
+                </div>
+            </div>
+
+            <div class="p-col-3">
+                <div style="text-align: end;">
+                    <button style="margin-right: 10px;" pButton class="btn-white" type="button"
+                        label="{{'gestor-detail.review' | transloco}}" icon="pi pi-search" (click)="revisar()"
+                        pTooltip="{{'gestor-detail.review' | transloco}}" tooltipPosition="bottom"></button>
+
+                    <!-- <button pButton type="button" label="{{'gestor-detail.approve' | transloco}}" icon="pi pi-check"
+                        (click)="aprovar()" pTooltip="{{'gestor-detail.approve' | transloco}}"
+                        tooltipPosition="bottom"></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-12" *ngIf="isReview">
+        <div class="p-grid">
+            <div class="p-col-9">
+                <div style="text-align: start;">
+                    <button pButton class="btn-white" type="button" label="{{'gestor-detail.return' | transloco}}"
+                        icon="pi pi-chevron-left" (click)="voltarDetail()"
+                        pTooltip="{{'gestor-detail.return' | transloco}}" tooltipPosition="bottom"></button>
+                </div>
+            </div>
+
+            <div class="p-col-3">
+                <div style="text-align: end;">
+                    <button pButton type="button" label="{{'gestor-detail.advance' | transloco}}" icon="pi pi-check"
+                        (click)="avancar()" pTooltip="{{'gestor-detail.advance' | transloco}}" tooltipPosition="bottom"
+                        [disabled]="!isValid"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-12" *ngIf="isAdvanced">
+        <div class="p-grid">
+            <div class="p-col-9">
+                <div style="text-align: start;">
+                    <button pButton class="btn-white" type="button" label="{{'gestor-detail.return' | transloco}}"
+                        icon="pi pi-chevron-left" pTooltip="{{'gestor-detail.return' | transloco}}"
+                        tooltipPosition="bottom" (click)="voltarSelecao()"></button>
+                </div>
+            </div>
+
+            <div class="p-col-3">
+                <div style="text-align: end;">
+                    <button style="margin-right: 10px;" pButton class="btn-white" type="button"
+                        label="{{'gestor-detail.cancel' | transloco}}" icon="pi pi-times" (click)="cancelar()"
+                        pTooltip="{{'gestor-detail.cancel' | transloco}}" tooltipPosition="bottom"></button>
+
+                    <button pButton type="button" label="{{'gestor-detail.submit' | transloco}}" icon="pi pi-check"
+                        (click)="enviar()" pTooltip="{{'gestor-detail.submit' | transloco}}"
+                        tooltipPosition="bottom"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+</ng-template>
+
+<ng-template [ngIf]="isFinalizar">
+    <p-table>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>{{colaborador? colaborador.nome : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.nome : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.nome : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.nome : 'Nada'}}</th>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <hr>
+
+    <app-finalizacao></app-finalizacao>
+
+    <div class="p-col-12">
+        <div style="text-align: end;">
+            <button pButton class="btn-white" type="button" label="{{'gestor-detail.return' | transloco}}"
+                icon="pi pi-chevron-left" pTooltip="{{'gestor-detail.return' | transloco}}" tooltipPosition="bottom"
+                (click)="voltarListagem()"></button>
+        </div>
+    </div>
+
+</ng-template>
+

@@ -1,0 +1,382 @@
+<ng-template [ngIf]="isDetail" [formGroup]="detailForm">
+    <p-table>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>{{colaborador !== null ? colaborador.name : 'Cargo'}}</th>
+                <th>{{colaborador !== null ? colaborador.nome_colaborador : 'Localidade'}}</th>
+                <th>{{colaborador !== null ? colaborador.cell_code : 'Célula'}}</th>
+                <th>{{colaborador !== null ? colaborador.client_name : 'Cliente'}}</th>
+                <th>{{colaborador !== null ? (getInvestimentoTotal() | currency :'BRL') : 'Investimento'}}</th>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <hr>
+
+    <p *ngIf="isReview" style="text-align: start; padding-left: 95px;">
+        {{'aprovacao-detail.info-review' | transloco}}
+    </p>
+
+    <p *ngIf="isAdvanced" style="text-align: start; padding-left: 95px;">
+        {{'aprovacao-detail.info-edit' | transloco}}
+    </p>
+
+    <hr *ngIf="isReview || isAdvanced">
+
+    <div *ngFor="let equip of equips">
+    <div class="p-col-12" *ngIf="isCelular">
+        <div class="p-grid" style="text-align: left;">
+
+            <div class="p-col-1" style="width: 5%;" *ngIf="isReview">
+                <h1 style="text-align: center;">
+                    <p-checkbox (onChange)="getSelectItem($event)" formControlName="celular" binary="true"
+                        inputId="binary">
+                    </p-checkbox>
+                </h1>
+            </div>
+
+            <div class="p-col-1">
+                <h1>
+                    <img style="text-align: center; vertical-align: middle;"
+                        src="../../../../assets/img/icon_celular.png">
+                </h1>
+            </div>
+            <div class="p-col-6">
+                <b>{{'aprovacao-detail.phone' | transloco}}</b>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+            <div class="p-col-2">
+                <b>&nbsp;</b>
+                <p> {{equip.tipoParcela.string}} </p>
+            </div>
+            <div class="p-col-2">
+                <b>&nbsp;</b>
+                <p> {{equip.custo | currency :'BRL'}} </p>
+            </div>
+
+        </div>
+
+        <div class="p-col-10" *ngIf="isAdvanced && isCelular">
+            <div class="p-grid">
+                <div class="p-col-1"></div>
+                <div class="p-col-11">
+                    <div class="radio-group">
+                        <div *ngFor="let item of radioOpstions" class="p-field-radiobutton p-field-checkbox textForm">
+                            <p-radioButton formControlName="celularOpt" inpudIt="item.key" name="item" [value]="item" [(ngModel)]="reviewCelular">
+                            </p-radioButton>
+                            <label [for]="item.key" style="margin-left: 10px;">{{item.name}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-grid">
+                <div class="p-col-1"></div>
+                <div class="p-col-11" style="text-align: start;">
+                    <textarea style="width: 100%;" 
+                        placeholder="{{'aprovacao-detail.observation' | transloco}}" rows="3" cols="30" pInputTextarea
+                        maxlength="250" formControlName="celularObservacao" ></textarea>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+   <hr style="border: none;border-bottom: 2px dashed;" *ngIf="isCelular">
+
+    <div class="p-col-12" *ngIf="isPlano">
+        <div class="p-grid" style="text-align: left;">
+
+            <div class="p-col-1" style="width: 5%;" *ngIf="isReview">
+                <h1 style="text-align: center;">
+                    <p-checkbox (onChange)="getSelectItem($event)" formControlName="plano" binary="true"
+                        inputId="binary">
+                    </p-checkbox>
+                </h1>
+            </div>
+
+            <div class="p-col-1">
+                <h1>
+                    <img style="text-align: center; vertical-align: middle;"
+                        src="../../../../assets/img/icon_plano.png">
+                </h1>
+            </div>
+            <div class="p-col-6">
+                <b>{{'aprovacao-detail.mobile-plane' | transloco}}</b>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+            <div class="p-col-2">
+                <b>&nbsp;</b>
+                <p> {{equip.tipoParcela.string}} </p>
+            </div>
+            <div class="p-col-2">
+                <b>&nbsp;</b>
+                <p> {{equip.custo | currency :'BRL'}} </p>
+            </div>
+
+        </div>
+
+        <div class="p-col-10" *ngIf="isAdvanced && isPlano">
+            <div class="p-grid">
+                <div class="p-col-1"></div>
+                <div class="p-col-11">
+                    <div class="radio-group">
+                        <div *ngFor="let item of radioOpstions" class="p-field-radiobutton">
+                            <p-radioButton formControlName="planoOpt" inpudIt="item.key" name="item" [value]="item" [(ngModel)]="reviewPlano">
+                            </p-radioButton>
+                            <label [for]="item.key" style="margin-left: 10px;">{{item.name}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-grid">
+                <div class="p-col-1"></div>
+                <div class="p-col-11" style="text-align: start;">
+                    <textarea style="width: 100%;" 
+                        placeholder="{{'aprovacao-detail.observation' | transloco}}" rows="3" cols="30" pInputTextarea
+                        maxlength="250" formControlName="planoObservacao"></textarea>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <hr style="border: none;border-bottom: 2px dashed;" *ngIf="isPlano"> 
+
+    <div class="p-col-12" *ngIf="isEquipamento">
+        <div class="p-grid" style="text-align: left;">
+
+            <div class="p-col-1" style="width: 5%;" *ngIf="isReview">
+                <h1 style="text-align: center;">
+                    <p-checkbox (onChange)="getSelectItem($event)" formControlName="equipamentos" binary="true"
+                        inputId="binary"></p-checkbox>
+                </h1>
+            </div>
+
+            <div class="p-col-1">
+                <h1>
+                    <img style="text-align: center; vertical-align: middle;" src="../../../../assets/img/icon_eqpt.png">
+                </h1>
+            </div>
+            <div class="p-col-6">
+                <b>{{'aprovacao-detail.equipments' | transloco}}</b>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+            <div class="p-col-2">
+                <b>&nbsp;</b>
+                <p> {{equip.tipoParcela.string}} </p>
+            </div>
+            <div class="p-col-2">
+                <b>&nbsp;</b>
+                <p> {{equip.custo | currency :'BRL'}} </p>
+            </div>
+        </div>
+
+        <div class="p-col-10" *ngIf="isAdvanced && isEquipamento">
+            <div class="p-grid">
+                <div class="p-col-1"></div>
+                <div class="p-col-11">
+                    <div class="radio-group">
+                        <div *ngFor="let item of radioOpstions" class="p-field-radiobutton">
+                            <p-radioButton formControlName="equipamentoOpt" inpudIt="item.key" name="item"
+                                [value]="item" [(ngModel)]="reviewEquipamento">
+                            </p-radioButton>
+                            <label [for]="item.key" style="margin-left: 10px;">{{item.name}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-grid">
+                <div class="p-col-1"></div>
+                <div class="p-col-11" style="text-align: start;">
+                    <textarea style="width: 100%;" 
+                        placeholder="{{'aprovacao-detail.observation' | transloco}}" rows="3" cols="30" pInputTextarea
+                        maxlength="250" formControlName="equipamentoObservacao"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <hr style="border: none;border-bottom: 2px dashed;" *ngIf="isEquipamento">
+
+    <div class="p-col-12" *ngIf="isLicensa">
+        <div class="p-grid" style="text-align: left;">
+
+            <div class="p-col-1" style="width: 5%;" *ngIf="isReview">
+                <h1 style="text-align: center;">
+                    <p-checkbox (onChange)="getSelectItem($event)" formControlName="licensa" binary="true"
+                        inputId="binary">
+                    </p-checkbox>
+                </h1>
+            </div>
+
+            <div class="p-col-1">
+                <h1>
+                    <img style="text-align: center; vertical-align: middle;"
+                        src="../../../../assets/img/icon_softwares.png">
+                </h1>
+            </div>
+            <div class="p-col-6">
+                <b>{{'aprovacao-detail.licenses' | transloco}}</b>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+            <div class="p-col-2">
+                <b>&nbsp;</b>
+                <p> {{equip.tipoParcela.string}} </p>
+            </div>
+            <div class="p-col-2">
+                <b>&nbsp;</b>
+                <p> {{equip.custo | currency :'BRL'}} </p>
+            </div>
+        </div>
+
+        <div class="p-col-10" *ngIf="isAdvanced && isLicensa">
+            <div class="p-grid">
+                <div class="p-col-1"></div>
+                <div class="p-col-11">
+                    <div class="radio-group">
+                        <div *ngFor="let item of radioOpstions" class="p-field-radiobutton">
+                            <p-radioButton formControlName="licencaOpt" inpudIt="item.key" name="item" [value]="item" [(ngModel)]="reviewLicensa">
+                            </p-radioButton>
+                            <label [for]="item.key" style="margin-left: 10px;">{{item.name}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-grid">
+                <div class="p-col-1"></div>
+                <div class="p-col-11" style="text-align: start;">
+                    <textarea style="width: 100%;"
+                        placeholder="{{'aprovacao-detail.observation' | transloco}}" rows="3" cols="30" pInputTextarea
+                        maxlength="250" formControlName="licencaObservacao"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+    <hr style="border: none;border-bottom: 2px dashed;" *ngIf="isLicensa"> 
+    </div>
+    
+    <div class="p-col-12">
+        <div class="p-grid" style="text-align: left;">
+            <div class="p-col-1" style="width: 5%;" *ngIf="isReview"></div>
+            <div class="p-col-1"></div>
+            <div class="p-col-6"></div>
+            <div class="p-col-2">
+                <p>
+                    <b>{{'aprovacao-detail.total' | transloco}}</b>
+                </p>
+            </div>
+            <div class="p-col-2">
+                <p>
+                    <b>{{getInvestimentoTotal() | currency :'BRL'  }}</b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <br>
+
+    <div class="p-col-12" *ngIf="!isReview && !isAdvanced">
+        <div class="p-grid">
+            <div class="p-col-9">
+                <div style="text-align: start;">
+                    <button pButton class="btn-white" type="button" label="{{'aprovacao-detail.return' | transloco}}"
+                        icon="pi pi-chevron-left" (click)="voltarListagem()"
+                        pTooltip="{{'aprovacao-detail.return' | transloco}}" tooltipPosition="bottom"></button>
+                </div>
+            </div>
+
+            <div class="p-col-3">
+                <div style="text-align: end;">
+                    <button style="margin-right: 10px;" pButton class="btn-white" type="button"
+                        label="{{'aprovacao-detail.review' | transloco}}" icon="pi pi-search" (click)="revisar()"
+                        pTooltip="{{'aprovacao-detail.review' | transloco}}" tooltipPosition="bottom"></button>
+
+                    <button pButton type="button" label="{{'aprovacao-detail.approve' | transloco}}" icon="pi pi-check"
+                        (click)="submit()" pTooltip="{{'aprovacao-detail.approve' | transloco}}"
+                        tooltipPosition="bottom"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-12" *ngIf="isReview">
+        <div class="p-grid">
+            <div class="p-col-9">
+                <div style="text-align: start;">
+                    <button pButton class="btn-white" type="button" label="{{'aprovacao-detail.return' | transloco}}"
+                        icon="pi pi-chevron-left" (click)="voltarDetail()"
+                        pTooltip="{{'aprovacao-detail.return' | transloco}}" tooltipPosition="bottom"></button>
+                </div>
+            </div>
+
+            <div class="p-col-3">
+                <div style="text-align: end;">
+                    <button pButton type="button" label="{{'aprovacao-detail.advance' | transloco}}" icon="pi pi-check"
+                        (click)="avancar()" pTooltip="{{'aprovacao-detail.advance' | transloco}}"
+                        tooltipPosition="bottom" [disabled]="!isValid"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-12" *ngIf="isAdvanced">
+        <div class="p-grid">
+            <div class="p-col-9">
+                <div style="text-align: start;">
+                    <button pButton class="btn-white" type="button" label="{{'aprovacao-detail.return' | transloco}}"
+                        icon="pi pi-chevron-left" pTooltip="{{'aprovacao-detail.return' | transloco}}"
+                        tooltipPosition="bottom" (click)="voltarSelecao()"></button>
+                </div>
+            </div>
+
+            <div class="p-col-3">
+                <div style="text-align: end;">
+                    <button style="margin-right: 10px;" pButton class="btn-white" type="button"
+                        label="{{'aprovacao-detail.cancel' | transloco}}" icon="pi pi-times" (click)="cancelar()"
+                        pTooltip="{{'aprovacao-detail.cancel' | transloco}}" tooltipPosition="bottom"></button>
+
+                    <button pButton type="button" label="{{'aprovacao-detail.submit' | transloco}}" icon="pi pi-check"
+                        (click)="submit()" pTooltip="{{'aprovacao-detail.submit' | transloco}}"
+                        tooltipPosition="bottom" [disabled]="!isValidToSubmit()"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+</ng-template>
+
+<ng-template [ngIf]="isFinalizar">
+    <p-table>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>{{colaborador !== null ? colaborador.name : 'Cargo'}}</th>
+                <th>{{colaborador !== null ? colaborador.nome_colaborador : 'Localidade'}}</th>
+                <th>{{colaborador !== null ? colaborador.cell_code : 'Célula'}}</th>
+                <th>{{colaborador !== null ? colaborador.client_name : 'Cliente'}}</th>
+                <th>{{colaborador !== null ? (getInvestimentoTotal() | currency :'BRL') : 'Investimento'}}</th>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <hr>
+
+    <app-finalizacao></app-finalizacao>
+
+    <div class="p-col-12">
+        <div style="text-align: end;">
+            <button pButton class="btn-white" type="button" label="{{'aprovacao-detail.return' | transloco}}"
+                icon="pi pi-chevron-left" pTooltip="{{'aprovacao-detail.return' | transloco}}" tooltipPosition="bottom"
+                (click)="voltarListagem()"></button>
+        </div>
+    </div>
+
+</ng-template>

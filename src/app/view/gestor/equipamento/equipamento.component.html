@@ -1,0 +1,162 @@
+<div [formGroup]="celularForm" *ngIf="isCelular" style="padding-top: 0;">
+    <div style="text-align: left; display: flex;">
+        <div class="p-col-1"></div>
+        <div class="p-col-11" style="display: flex; flex-wrap: wrap; padding: 0;">
+            <div class="p-col-5" style="padding: 1% 0; display: flex;" *ngFor="let item of celularLista">
+                <div style="width: 100%;">
+                    <p-dropdown [options]="cellphone" formControlName="celular" optionLabel="modelo" [showClear]="true"
+                    placeholder="Celular" [style]="{'text-align':'left', 'width': '100%'}"
+                    dropdownIcon="pi pi-sort">
+                </p-dropdown>
+            </div>
+                <div style="padding: 0% 3%;">
+                    <button class="btn-secondary" pButton type="button" icon="pi pi-trash" (click)="removePhone(item)"
+                        pTooltip="{{'gestor-equip.remove' | transloco}}" tooltipPosition="bottom"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-col-12" style="display: flex; padding: 0;">
+        <div class="p-col-1"></div>
+        <div class="p-col-3" style="padding: 0;">
+            <button pButton type="button" label="{{'gestor-equip.add' | transloco}}" icon="pi pi-plus"
+                (click)="addPhone()" pTooltip="{{'gestor-equip.add' | transloco}}" style="float: left;"
+                tooltipPosition="bottom"></button>
+        </div>
+    </div>
+</div>
+{{celularLista | json}}
+
+<div [formGroup]="planoForm" *ngIf="isPlan" style="padding-top: 0;">
+    <div style="text-align: left; display: flex;">
+        <div class="p-col-1"></div>
+        <div class="p-col-11" style="display: flex; flex-wrap: wrap; padding: 0;">
+            <div class="p-col-5" style="padding: 1% 0; display: flex;" *ngFor="let item of planoLista">
+                <div style="width: 100%;">
+                    <p-dropdown [options]="plan" formControlName="plano" optionLabel="tipoPlano" [showClear]="true"
+                        placeholder="Plano Móvel" [style]="{'text-align':'left', 'width': '100%'}"
+                        dropdownIcon="pi pi-sort">
+                    </p-dropdown>
+                </div>
+                <div style="padding: 0% 3%;">
+                    <button class="btn-secondary" pButton type="button" icon="pi pi-trash" (click)="removePlano(item)"
+                        pTooltip="{{'gestor-equip.remove' | transloco}}" tooltipPosition="bottom"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-col-12" style="display: flex; padding: 0;">
+        <div class="p-col-1"></div>
+        <div class="p-col-3" style="padding: 0;">
+            <button pButton type="button" label="{{'gestor-equip.add' | transloco}}" icon="pi pi-plus"
+                (click)="addPlano()" pTooltip="{{'gestor-equip.add' | transloco}}" style="float: left;"
+                tooltipPosition="bottom"></button>
+        </div>
+    </div>
+</div>
+{{planoLista | json}}
+
+<div [formGroup]="licencaForm" *ngIf="isLicense" style="padding-top: 0;">
+    <div style="text-align: left; display: flex;">
+        <div class="p-col-1"></div>
+        <div class="p-col-11" style="display: flex; flex-wrap: wrap; padding: 0;">
+            <div class="p-col-5" style="padding: 1% 0; display: flex;" *ngFor="let item of licencaLista">
+                <div style="width: 100%;">
+                    <p-dropdown [options]="licenses" formControlName="licenca" optionLabel="tipoLicenca"
+                        [showClear]="true" placeholder="Licenças e Software"
+                        [style]="{'text-align':'left', 'width': '100%'}" dropdownIcon="pi pi-sort">
+                    </p-dropdown>
+                </div>
+                <div style="padding: 0% 3%;">
+                    <button class="btn-secondary" pButton type="button" icon="pi pi-trash" (click)="removeLicenca(item)"
+                        pTooltip="{{'gestor-equip.remove' | transloco}}" tooltipPosition="bottom"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-col-12" style="display: flex; padding: 0;">
+        <div class="p-col-1"></div>
+        <div class="p-col-3" style="padding: 0;">
+            <button pButton type="button" label="{{'gestor-equip.add' | transloco}}" icon="pi pi-plus"
+                (click)="addLicenca()" pTooltip="{{'gestor-equip.add' | transloco}}" style="float: left;"
+                tooltipPosition="bottom"></button>
+        </div>
+    </div>
+</div>
+{{licencaLista | json}}
+
+<div [formGroup]="equipamentoForm" style="padding-top: 0;" *ngIf="isEquip">
+    <div style="text-align: left; display: flex;">
+        <div class="p-col-1"></div>
+        <div class="p-col-11" style="display: flex; flex-wrap: wrap; padding: 0;">
+            <div class="p-col-5" style="padding: 1% 0; display: flex;" *ngIf="showNotebook">
+                <div style="width: 100%;">
+                    <p-dropdown [options]="notebook" formControlName="equipamento" optionLabel="model"
+                        [showClear]="true" placeholder="Notebook" editable="true"
+                        [style]="{'text-align':'left', 'width': '100%'}" dropdownIcon="pi pi-sort">
+                    </p-dropdown>
+                </div>
+                <div style="padding: 0% 3%;">
+                    <button class="btn-secondary" pButton type="button" icon="pi pi-trash" (click)="hideNotebook()"
+                        pTooltip="{{'gestor-equip.remove' | transloco}}" tooltipPosition="bottom"></button>
+                </div>
+            </div>
+
+            <div class="p-col-5" style="padding: 1% 0; display: flex;" *ngIf="showMouse">
+                <div style="width: 100%;">
+                    <p-dropdown [options]="mouse" formControlName="equipamento" optionLabel="model" [showClear]="true"
+                        placeholder="Mouse" editable="true" [style]="{'text-align':'left', 'width': '100%'}"
+                        dropdownIcon="pi pi-sort">
+                    </p-dropdown>
+                </div>
+                <div style="padding: 0% 3%;">
+                    <button class="btn-secondary" pButton type="button" icon="pi pi-trash" (click)="hideMouse()"
+                        pTooltip="{{'gestor-equip.remove' | transloco}}" tooltipPosition="bottom"></button>
+                </div>
+            </div>
+
+            <div class="p-col-5" style="padding: 1% 0; display: flex;" *ngIf="showHeadphone">
+                <div style="width: 100%;">
+                    <p-dropdown [options]="headphone" formControlName="equipamento" optionLabel="model"
+                        [showClear]="true" placeholder="Headphone" editable="true"
+                        [style]="{'text-align':'left', 'width': '100%'}" dropdownIcon="pi pi-sort">
+                    </p-dropdown>
+                </div>
+                <div style="padding: 0% 3%;">
+                    <button class="btn-secondary" pButton type="button" icon="pi pi-trash" (click)="hideHeadphone()"
+                        pTooltip="{{'gestor-equip.remove' | transloco}}" tooltipPosition="bottom"></button>
+                </div>
+            </div>
+
+
+            <div class="p-col-5" style="padding: 1% 0; display: flex;" *ngFor="let item of equipamentoLista">
+                <div style="width: 100%;">
+                    <p-dropdown [options]="groupedEquips" formControlName="equipamento" [showClear]="true"
+                        placeholder="Equipamentos" group="true" [style]="{'text-align':'left', 'width': '100%'}"
+                        dropdownIcon="pi pi-sort">
+                        <ng-template let-group pTemplate="group">
+                            <div class="p-d-flex p-ai-center">
+                                <span>{{group.label}}</span>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
+                </div>
+                <div  style="padding: 0% 3%;">
+                    <button class="btn-secondary" pButton type="button" icon="pi pi-trash"
+                        (click)="removeEquipamento(item)" pTooltip="{{'gestor-equip.remove' | transloco}}"
+                        tooltipPosition="bottom"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-col-12" style="display: flex; padding: 0;">
+        <div class="p-col-1"></div>
+        <div class="p-col-3" style="padding: 0;">
+            <button pButton type="button" label="{{'gestor-equip.add' | transloco}}" icon="pi pi-plus"
+                (click)="addEquipamento()" pTooltip="{{'gestor-equip.add' | transloco}}" style="float: left;"
+                tooltipPosition="bottom"></button>
+        </div>
+    </div>
+</div>
+
+{{equipamentoLista | json}}

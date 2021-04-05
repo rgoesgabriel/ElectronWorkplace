@@ -1,0 +1,85 @@
+<div class="card">
+    <p-toast></p-toast>
+    <p-tabView>
+
+        <div style="padding: 13%; text-align: center;" *ngIf="!itens">
+            <p-progressSpinner></p-progressSpinner>
+        </div>
+
+        <div class="p-col-12" *ngIf="isError">
+            <div style="text-align: center;">
+                <h2 class="notfound">{{'cadastro.no-item-error' | transloco}}
+                </h2>
+                <button type="text" pButton label="{{'cadastro.update' | transloco}}"
+                    pTooltip="{{'cadastro.update' | transloco}}" tooltipPosition="bottom" (click)="getTableInfo()"
+                    style="border: 1px solid white;"></button>
+            </div>
+        </div>
+
+        <p-tabPanel header="{{'cadastro.step-gestao' | transloco}}" *ngIf="itens">
+            <p-table #dt [value]="itens" [paginator]="true" [rows]="10" *ngIf="showDetail">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th class="content-column" *ngFor="let col of cols" [pSortableColumn]="col.field"
+                            [ngStyle]="{'width': col.width}">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field"></p-sortIcon>
+                        </th>
+
+                        <th style="width: 15%;" class="content-column">
+                            <h1 style="text-align: center; margin: 0;">
+                                <button type="button" pButton icon="pi pi-plus" iconPos="left"
+                                    label="{{'cadastro.add-button' | transloco}}" (click)="getAdicionar()"
+                                    pTooltip="{{'cadastro.add-label-user' | transloco}}" tooltipPosition="bottom">
+                                </button>
+                            </h1>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="content-column" *ngFor="let col of cols">
+                            <input pInputText type="text"
+                                (input)="dt.filter($event.target.value, col.field, 'startsWith')"
+                                placeholder="{{col.header}}" class="p-column-filter">
+                        </th>
+
+                        <th style="width: 15%;" class="content-column"></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item>
+                    <tr [pEditableRow]="rowData">
+                        <td *ngFor="let col of cols" [ngStyle]="{'text-align': col.align}">
+                            {{item[col.field]?.nome ? item[col.field]?.nome : item[col.field] | titlecase}}
+                        </td>
+
+                        <td style="text-align:center">
+                            <button style="height: 35px;" pButton type="button" pInitEditableRow icon="pi pi-pencil"
+                                (click)="getEditar($event, item)" pTooltip="{{'cadastro.edit-label-user' | transloco}}"
+                                tooltipPosition="bottom"></button>
+
+                            <button style="height: 35px; margin-left: 10px;" class="btn-secondary" pButton type="button"
+                                pInitEditableRow icon="pi pi-trash" (click)="getExcluir($event, item)"
+                                pTooltip="{{'cadastro.delete-label-user' | transloco}}"
+                                tooltipPosition="bottom"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <h1 style="font-size: 20px; margin-left: 15px;">
+                        <i class="pi pi-exclamation-triangle"></i>
+                        {{'cadastro.no-item' | transloco}}
+                    </h1>
+                </ng-template>
+            </p-table>
+
+            <div *ngIf="showDetail">
+                <br>
+                <button style="float: right;" pButton type="button" label="{{'cadastro.return' | transloco}}"
+                    icon="pi pi-angle-left" (click)="voltar()" pTooltip="{{'cadastro.return' | transloco}}"
+                    tooltipPosition="bottom"></button>
+            </div>
+        </p-tabPanel>
+
+        <app-cadastro-detalhe (eventOutput)="getTableInfo()"></app-cadastro-detalhe>
+
+    </p-tabView>
+</div>

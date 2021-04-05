@@ -1,0 +1,84 @@
+<!-- table -->
+<p-table #dt [value]="pessoas" [paginator]="true" [rows]="10" *ngIf="isTable">
+    <ng-template pTemplate="caption" style="padding: 0;">
+        <div *ngIf="abaAtiva == 2"  class="p-col-12" style="width: 100%; padding: 0;">
+            <p-messages [(value)]="msg" [enableService]="false"></p-messages>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th class="content-column" *ngFor="let col of cols" [pSortableColumn]="col.field"
+                [ngStyle]="{'width': col.width}">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+            <th style="width: 15%;" class="content-column"></th>
+        </tr>
+        <tr>
+            <th class="content-column" *ngFor="let col of cols">
+                <input pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'startsWith')"
+                    placeholder="{{col.header}}" class="p-column-filter">
+            </th>
+            <th class="content-column"></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+        <tr [pEditableRow]="rowData">
+            <td *ngFor="let col of cols" [ngStyle]="{'text-align': col.align}">
+                {{item[col.field]?.cargo ? item[col.field]?.cargo : item[col.field]}}
+            </td>
+
+            <td style="text-align:center" >
+                <button *ngIf="abaAtiva <= 1" style="height: 35px;" pButton type="button" pInitEditableRow icon="pi pi-chevron-right"
+                    (click)="getRevisar($event, item)" pTooltip="{{'analista-tabela.review' | transloco}}"
+                    tooltipPosition="bottom"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <h1 style="font-size: 20px; margin-left: 15px;">
+            <i class="pi pi-exclamation-triangle"></i>
+            {{'analista-tabela.no-item' | transloco}}
+        </h1>
+    </ng-template>
+</p-table>
+
+<div *ngIf="isTable">
+    <br>
+    <button style="float: right;" pButton type="button" label="{{'analista-tabela.return' | transloco}}"
+        icon="pi pi-angle-left" (click)="voltar()" pTooltip="{{'analista-tabela.return' | transloco}}"
+        tooltipPosition="bottom"></button>
+</div>
+
+<div *ngIf="abaAtiva==3">
+    <div class="p-grid">
+        <div class="p-col-8">
+            <div class="p-grid">
+                <div class="p-col-3" style="font-size: 14px;">
+                    <i class="pi pi-clock" style="color: #006BD7; margin-right: 2px;"></i>
+                    {{'analista-tabela.ticket-deferred' | transloco}}
+                </div>
+                <div class="p-col-3" style="font-size: 14px;">
+                    <i class="pi pi-clock" style="color: #00D99D; margin-right: 2px;"></i>
+                    {{'analista-tabela.ticket-on-time' | transloco}}
+                </div>
+                <div class="p-col-3" style="font-size: 14px;">
+                    <i class="pi pi-clock" style="color: #FFCB13; margin-right: 2px;"></i>
+                    {{'analista-tabela.ticket-on-hold' | transloco}}
+                </div>
+                <div class="p-col-3" style="font-size: 14px;">
+                    <i class="pi pi-clock" style="color: #D9534F; margin-right: 2px;"></i>
+                    {{'analista-tabela.ticket-delayed' | transloco}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-equipamento (eventOutput)="visaoInicial()"></app-equipamento>
+
+<app-analista-detalhe-info (eventOutput)="visaoInicial()"></app-analista-detalhe-info>
+
+
+<!-- table -->

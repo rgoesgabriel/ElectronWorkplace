@@ -1,0 +1,14 @@
+.btn-white {
+    color: #006bd3;
+    background-color: #fff;
+    border: 1px solid #006bd3;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    padding: 0.4375rem 0.875rem;
+}
+
+.btn-white:enabled:hover {
+    background-color: #006bd3;
+    color: #fff;
+    border: 1px solid #fff
+}

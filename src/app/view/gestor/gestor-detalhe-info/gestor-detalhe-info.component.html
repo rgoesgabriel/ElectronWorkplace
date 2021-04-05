@@ -1,0 +1,91 @@
+<ng-template [ngIf]="isInfo">
+    <p-table>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>{{colaborador? colaborador.cargo : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.localidade : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.celula : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.cliente : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.kit : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.investimento : 'Nada'}}</th>
+            </tr>
+        </ng-template>
+    </p-table>
+
+
+
+    <div class="p-grid">
+        <div class="p-col-12">
+            <div class="p-grid">
+                <div class="p-col-1">
+                    <h1>
+                        <img style="text-align: center; vertical-align: middle;"
+                            src="../../../../assets/img/icon_camera.png">
+                    </h1>
+                </div>
+                <div class="p-col-5" style="text-align: left;">
+                    <h5>{{'gestor-detail-info.personal-info' | transloco}}</h5>
+                    <p>Nome: {{colaborador.nome}}</p>
+                    <p>CPF: 000.000.000-xx</p>
+                    <p>email: example@stefanini.com</p>
+                </div>
+                <div class="p-col-6" style="text-align: left;">
+                    <h5>{{'gestor-detail-info.position' | transloco}}</h5>
+                    <p>Nome da Vaga: Lorem ipsum</p>
+                    <p>Nível: Pleno</p>
+                    <p>Kit sugerido: Lorem kitsum</p>
+                    <p>email: example@stefanini.com</p>
+                </div>
+            </div>
+            <hr style="border: none;border-bottom: 2px dashed;">
+            <div class="p-grid">
+                <div class="p-col-1">
+                    <h1>
+                        <img style="text-align: center; vertical-align: middle;"
+                            src="../../../../assets/img/icon_eqpt.png">
+                    </h1>
+                </div>
+                <div class="p-col-5" style="text-align: justify;">
+                    <h5>{{'gestor-detail-info.equip-requested' | transloco}}</h5>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, explicabo quae, error omnis
+                        provident voluptas incidunt doloribus, mollitia officia necessitatibus nemo aspernatur fugit
+                        tempore ratione eligendi commodi dicta? Fugit, enim!
+                    </p>
+                </div>
+                <div class="p-col-6" style="text-align: justify;">
+                    <h5>{{'gestor-detail-info.equip-denied' | transloco}}</h5>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, explicabo quae, error omnis
+                        provident voluptas incidunt doloribus, mollitia officia necessitatibus nemo aspernatur fugit
+                        tempore ratione eligendi commodi dicta? Fugit, enim!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="p-col-12">
+        <div class="p-grid">
+            <div class="p-col-9">
+                <div style="text-align: start;">
+                    <button pButton class="btn-white" type="button" label="{{'gestor-detail-info.return' | transloco}}"
+                        icon="pi pi-chevron-left" (click)="voltarListagem()"
+                        pTooltip="{{'gestor-detail-info.return' | transloco}}" tooltipPosition="bottom"></button>
+                </div>
+            </div>
+
+            <div class="p-col-3">
+                <div style="text-align: end;">
+                    <button pButton type="button" label="{{'gestor-detail-info.modify-equip' | transloco}}" icon="pi pi-chevron-right"
+                        (click)="alterar($event, colaborador)" pTooltip="{{'gestor-detail-info.modify-equip' | transloco}}"
+                        tooltipPosition="bottom"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<app-gestor-detalhe (eventOutput)="visaoDetalheInfo()"></app-gestor-detalhe>

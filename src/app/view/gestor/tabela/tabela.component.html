@@ -1,0 +1,50 @@
+<!-- table -->
+<p-table #dt [value]="pessoas" [paginator]="true" [rows]="10" *ngIf="isTable">
+    <ng-template pTemplate="header">
+        <tr>
+            <th class="content-column" *ngFor="let col of cols" [pSortableColumn]="col.field"
+                [ngStyle]="{'width': col.width}">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+            <th style="width: 15%;" class="content-column"></th>
+        </tr>
+        <tr>
+            <th class="content-column" *ngFor="let col of cols">
+                <input pInputText type="text"
+                    (input)="dt.filter($event.target.value, col.field, 'startsWith')"
+                    placeholder="{{col.header}}" class="p-column-filter">
+            </th>
+            <th class="content-column"></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+        <tr [pEditableRow]="rowData">
+            <td *ngFor="let col of cols" [ngStyle]="{'text-align': col.align}">
+                {{item[col.field]?.cargo ? item[col.field]?.cargo : item[col.field] | titlecase}}
+            </td>
+
+            <td style="text-align:center">
+                <button style="height: 35px;" pButton type="button" pInitEditableRow
+                    icon="pi pi-chevron-right" (click)="getRevisar($event, item)"
+                    pTooltip="{{'gestor-tabela.review' | transloco}}" tooltipPosition="bottom"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <h1 style="font-size: 20px; margin-left: 15px;">
+            <i class="pi pi-exclamation-triangle"></i>
+            {{'gestor-tabela.no-item' | transloco}}
+        </h1>
+    </ng-template>
+</p-table>
+
+<div *ngIf="isTable">
+    <br>
+    <button style="float: right;" pButton type="button" label="{{'gestor-tabela.return' | transloco}}"
+        icon="pi pi-angle-left" (click)="voltar()" pTooltip="{{'gestor-tabela.return' | transloco}}"
+        tooltipPosition="bottom"></button>
+</div>
+
+<app-gestor-detalhe-info (eventOutput)="visaoInicial()"></app-gestor-detalhe-info>
+<!-- table -->

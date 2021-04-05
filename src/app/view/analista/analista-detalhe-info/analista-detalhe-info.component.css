@@ -1,0 +1,40 @@
+.btn-white {
+    color: #006bd3;
+    background-color: #fff;
+    border: 1px solid #006bd3;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    padding: 0.4375rem 0.875rem;
+}
+
+.btn-white:enabled:hover {
+    background-color: #006bd3;
+    color: #fff;
+    border: 1px solid #fff
+}
+
+.info-row {
+    border: none;
+    font-size: inherit;
+    font-weight: inherit;
+    width: 90%;
+    height: 30px;
+    line-height: 20.1px;
+    background-color: #ffffff;
+}
+
+.warning-area {
+    background-color: #FCF8E3;
+    max-width: 894px;
+    height: 78px;
+    border-radius: 4px;
+    position: relative;
+    margin-top: 24px;
+}
+
+.warning-text {
+    max-width: 90%;
+    padding: 14px 0 16px 16px;
+    color: #8A6D3B;
+    line-height: 24px;
+}

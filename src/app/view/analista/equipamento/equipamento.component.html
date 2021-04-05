@@ -1,0 +1,175 @@
+<div *ngIf="showEquip">
+    <p-table>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>{{colaborador? colaborador.cargo : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.localidade : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.celula : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.cliente : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.kit : 'Nada'}}</th>
+                <th>{{colaborador? colaborador.investimento : 'Nada'}}</th>
+            </tr>
+        </ng-template>
+    </p-table>
+    <div style="height: 48px;">
+        <p-table>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="background-color: transparent; padding-left: 95px;">Kit Admissional</th>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+    <div style="height: 272px; padding-top: 24px;">
+        <div class="p-col-12" style="display: flex;flex-wrap: wrap; padding-bottom: 0;">
+
+            <div class="p-col-6">
+                <div [formGroup]="celularForm" style="padding-top: 0;">
+                    <div style="text-align: left; display: flex;">
+                        <div class="p-col-12" style="padding-top: 0;">
+                            <div style="padding: 1% 0; display: flex;">
+                                <div class="p-col-7" style="padding: 0;">
+                                    <span class="p-float-label">
+                                        <input type="text" id="inputCelular" pInputText [value]="cellphone[0].modelo">
+                                        <label for="inputCelular">Celular</label>
+                                    </span>
+                                </div>
+                                <div class="p-col-5" style="padding: 0% 3%;">
+                                    <p-dropdown [options]="reference" formControlName="celular" optionLabel="modelo"
+                                        [showClear]="true" placeholder="Referência"
+                                        [style]="{'text-align':'left', 'width': '100%'}" dropdownIcon="pi pi-sort">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-col-6">
+                <div [formGroup]="planoForm" style="padding-top: 0;">
+                    <div style="text-align: left; display: flex;">
+                        <div class="p-col-12" style="padding-top: 0;">
+                            <div style="padding: 1% 0; display: flex;">
+                                <div class="p-col-7" style="padding: 0;">
+                                    <span class="p-float-label">
+                                        <input type="text" id="inputPlano" pInputText [value]="plan[0].tipoPlano">
+                                        <label for="inputPlano">Plano Móvel</label>
+                                    </span>
+                                </div>
+                                <div class="p-col-5" style="padding: 0% 3%;">
+                                    <p-dropdown [options]="quantidades" formControlName="plano" [showClear]="true"
+                                        placeholder="Quantidade" [style]="{'text-align':'left', 'width': '100%'}"
+                                        dropdownIcon="pi pi-sort">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="p-col-12" style="display: flex;flex-wrap: wrap; padding-bottom: 0;">
+
+            <div class="p-col-6">
+                <div [formGroup]="licencaForm" style="padding-top: 0;">
+                    <div style="text-align: left; display: flex;">
+                        <div class="p-col-12" style="padding-top: 0;">
+                            <div style="padding: 1% 0; display: flex;">
+                                <div class="p-col-7" style="padding: 0;">
+                                    <span class="p-float-label">
+                                        <input type="text" id="inputLicenca" pInputText
+                                            [value]="licenses[0].tipoLicenca">
+                                        <label for="inputLicenca">Licenças</label>
+                                    </span>
+                                </div>
+                                <div class="p-col-5" style="padding: 0% 3%;">
+                                    <p-dropdown [options]="quantidades" formControlName="licenca" [showClear]="true"
+                                        placeholder="Quantidade" [style]="{'text-align':'left', 'width': '100%'}"
+                                        dropdownIcon="pi pi-sort">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-col-6">
+                <div [formGroup]="equipamentoForm" style="padding-top: 0;">
+                    <div style="text-align: left; display: flex;">
+                        <div class="p-col-12" style="padding-top: 0;">
+                            <div style="padding: 1% 0; display: flex;">
+                                <div class="p-col-7" style="padding: 0;">
+                                    <span class="p-float-label">
+                                        <input type="text" id="inputMouse" pInputText [value]="mouse[0].model">
+                                        <label for="inputMouse">Mouse</label>
+                                    </span>
+                                </div>
+                                <div class="p-col-5" style="padding: 0% 3%;">
+                                    <p-dropdown [options]="quantidades" formControlName="equipamento" [showClear]="true"
+                                        placeholder="Quantidade" [style]="{'text-align':'left', 'width': '100%'}"
+                                        dropdownIcon="pi pi-sort">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="p-col-12" style="display: flex;flex-wrap: wrap; padding-bottom: 0;">
+
+            <div class="p-col-6">
+                <div [formGroup]="equipamentoForm" style="padding-top: 0;">
+                    <div style="text-align: left; display: flex;">
+                        <div class="p-col-12" style="padding-top: 0;">
+                            <div style="padding: 1% 0; display: flex;">
+                                <div class="p-col-7" style="padding: 0;">
+                                    <span class="p-float-label">
+                                        <input type="text" id="inputNotebook" pInputText [value]="notebook[0].model">
+                                        <label for="inputNotebook">Notebook</label>
+                                    </span>
+                                </div>
+                                <div class="p-col-5" style="padding: 0% 3%;">
+                                    <p-dropdown [options]="reference" formControlName="equipamento" optionLabel="modelo"
+                                        [showClear]="true" placeholder="Referência"
+                                        [style]="{'text-align':'left', 'width': '100%'}" dropdownIcon="pi pi-sort">
+                                    </p-dropdown>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-12">
+        <div class="p-grid">
+            <div class="p-col-9">
+                <div style="text-align: start;">
+                    <button pButton class="btn-white" type="button" label="{{'analista-detail.return' | transloco}}"
+                        icon="pi pi-chevron-left" pTooltip="{{'analista-detail.return' | transloco}}"
+                        tooltipPosition="bottom" (click)="voltarSelecao()"></button>
+                </div>
+            </div>
+
+            <div class="p-col-3">
+                <div style="text-align: end;">
+                    <button pButton type="button" label="{{'analista-detail.submit' | transloco}}" icon="pi pi-check"
+                        (click)="enviar()" pTooltip="{{'analista-detail.submit' | transloco}}"
+                        tooltipPosition="bottom"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

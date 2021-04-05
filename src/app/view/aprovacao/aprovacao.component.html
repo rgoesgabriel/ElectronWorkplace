@@ -1,0 +1,55 @@
+<div class="card">
+    <p-tabView>
+        <p-tabPanel header="{{'aprovacao.step-aguardando' | transloco}}">
+            <p-table #dt [value]="vagas" [paginator]="true" [rows]="10" *ngIf="showDetail">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th class="content-column" *ngFor="let col of cols" [pSortableColumn]="col.field"
+                            [ngStyle]="{'width': col.width}">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field"></p-sortIcon>
+                        </th>
+                        <th style="width: 15%;" class="content-column"></th>
+                    </tr>
+                    <tr>
+                        <th class="content-column" *ngFor="let col of cols">
+                            <input pInputText type="text"
+                                (input)="dt.filter($event.target.value, col.field, 'startsWith')"
+                                placeholder="{{col.header}}" class="p-column-filter">
+                        </th>
+                        <th class="content-column"></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item>
+                    <tr [pEditableRow]="rowData">
+                        <td *ngFor="let col of cols" [ngStyle]="{'text-align': col.align}">
+                            {{ col.field !== 'investimento' ? item[col.field] : item[col.field] | currency:'BRL'}}
+                        </td>
+
+                        <td style="text-align:center">
+                            <button style="height: 35px;" pButton type="button" pInitEditableRow
+                                icon="pi pi-chevron-right" (click)="getRevisar($event, item)"
+                                pTooltip="{{'aprovacao.review' | transloco}}" tooltipPosition="bottom"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <h1 style="font-size: 20px; margin-left: 15px;">
+                        <i class="pi pi-exclamation-triangle"></i>
+                        {{'aprovacao.no-item' | transloco}}
+                    </h1>
+                </ng-template>
+            </p-table>
+
+            <div *ngIf="showDetail">
+                <br>
+                <button style="float: right;" pButton type="button" label="{{'aprovacao.return' | transloco}}"
+                    icon="pi pi-angle-left" (click)="voltar()" pTooltip="{{'aprovacao.return' | transloco}}"
+                    tooltipPosition="bottom"></button>
+            </div>
+
+            <app-aprovacao-detalhe (eventOutput)="visaoInicial()"></app-aprovacao-detalhe>
+
+        </p-tabPanel>
+    </p-tabView>
+</div>

@@ -1,0 +1,190 @@
+{
+    "header": {
+        "hello": "Hello!",
+        "selectLanguage": "Language",
+        "signout": "Logoff",
+        "language": "Change language to - "
+    },
+    "footer": {},
+    "menu": {},
+    "login": {
+        "welcome": "Hello! Welcome! Here you can identify yourself wherever you are, virtually. Your ID badge and business card are here at your disposal.",
+        "email": "E-mail",
+        "password": "Password",
+        "login": "Sign In",
+        "loading": "Loading",
+        "username": "User",
+        "copyright": "All rights reserved.",
+        "language": "Change language to - "
+    },
+    "home": {},
+    "cards": {
+        "welcome": "Welcome",
+        "item-diretor": "Director",
+        "item-gestor": "Manager",
+        "item-analista": "Analyst",
+        "item-gestao-usuario": "User management"
+    },
+    "aprovacao": {
+        "step-aguardando": "Waiting for approval",
+        "return": "Return",
+        "review": "Review",
+        "no-item": "No collaborators found."
+    },
+    "aprovacao-detail": {
+        "info-review": "Select the items you would like to be reviewed.",
+        "info-edit": "Please provide the reasons for the review below.",
+        "radio-cost": "Costs",
+        "radio-adequacy": "Suitability for the position",
+        "radio-stock": "Stock",
+        "radio-other": "Other reasons",
+        "observation": "Observation",
+        "phone": "Mobile",
+        "mobile-plane": "Mobile plan",
+        "equipments": "Equipments",
+        "licenses": "Licenses and Software",
+        "total": "Total",
+        "approve": "Approve",
+        "review": "Review",
+        "advance": "Advance",
+        "return": "Return",
+        "cancel": "Cancel",
+        "submit": "Submit"
+    },
+    "gestor-aprovacao": {
+        "step-vaga": "Open position",
+        "step-analise": "Under review",
+        "step-espera": "On hold",
+        "step-preparacao": "In preparation",
+        "step-envio": "Sending",
+        "step-entregue": "Delivered"
+    },
+    "gestor-tabela": {
+        "return": "Return",
+        "review": "Review",
+        "no-item": "No collaborators found."
+    },
+    "gestor-detail": {
+        "info-review": "Select the items you would like to be reviewed.",
+        "info-edit": "Please provide the reasons for the review below.",
+        "phone": "Mobile",
+        "radio-cost": "Costs",
+        "radio-adequacy": "Suitability for the position",
+        "radio-stock": "Stock",
+        "radio-other": "Other reasons",
+        "observation": "Observation",
+        "mobile-plane": "Mobile plan",
+        "equipments": "Equipments",
+        "licenses": "Licenses and Software",
+        "total": "Total",
+        "return": "Return",
+        "review": "Review",
+        "approve": "Approve",
+        "advance": "Advance",
+        "cancel": "Cancel",
+        "submit": "Submit",
+        "add-phone": "Add mobile phone",
+        "add-plan": "Add phone plan"
+    },
+    "gestor-detail-info": {
+        "modify-equip": "Modify Equipments",
+        "return": "Return",
+        "personal-info": "Personal information",
+        "position": "Position",
+        "equip-requested": "Requested equipments",
+        "equip-denied": "Denied equipments"
+    },
+    "gestor-equip": {
+        "add": "Add equipaments",
+        "remove": "Remove item"
+    },
+    "analista-barra": {
+        "barra-onboarding": "Onboarding",
+        "barra-devolucao": "Returns",
+        "barra-categoria": "Categories",
+        "barra-colaboradores": "Collaborators",
+        "barra-custo": "Average cost",
+        "barra-equipamentos": "Total equipment"
+    },
+    "analista-aprovacao": {
+        "step-pedidos": "Open orders",
+        "step-separacao": "In separation",
+        "step-espera": "On hold",
+        "step-preparacao": "In preparation",
+        "step-embalagem": "Packing",
+        "step-plano": "Shipping plan",
+        "step-envio": "Sending",
+        "step-entregue": "Term signature"
+    },
+    "analista-tabela": {
+        "return": "Return",
+        "review": "Review",
+        "no-item": "No collaborators found.",
+        "ticket-deferred": "Ticket deferred",
+        "ticket-on-time": "Ticket on time",
+        "ticket-on-hold": "Ticket on hold",
+        "ticket-delayed": "Ticket delayed"
+    },
+    "analista-detail": {
+        "info-review": "Select the items you would like to be reviewed.",
+        "info-edit": "Please provide the reasons for the review below.",
+        "phone": "Mobile",
+        "radio-cost": "Costs",
+        "radio-adequacy": "Suitability for the position",
+        "radio-stock": "Stock",
+        "radio-other": "Other reasons",
+        "observation": "Observation",
+        "mobile-plane": "Mobile plan",
+        "equipments": "Equipments",
+        "licenses": "Licenses and Software",
+        "total": "Total",
+        "return": "Return",
+        "review": "Review",
+        "approve": "Approve",
+        "advance": "Advance",
+        "cancel": "Cancel",
+        "submit": "Submit",
+        "add-phone": "Add mobile phone",
+        "add-plan": "Add phone plan"
+    },
+    "analista-detail-info": {
+        "modify-equip": "Modify Equipments",
+        "return": "Return",
+        "personal-info": "Personal information",
+        "position": "Position",
+        "equip-requested": "Requested equipments",
+        "equip-denied": "Denied equipments",
+        "equip-sending": "Equipments to be sent"
+    },
+    "analista-equip": {
+        "add": "Add equipaments",
+        "remove": "Remove item"
+    },
+    "cadastro": {
+        "step-gestao": "User management",
+        "return": "Return",
+        "update": "Update",
+        "options": "Options",
+        "no-item": "No collaborators found.",
+        "no-item-error": "It was not possible to return information.",
+        "authorization": "Profile",
+        "change-authorization": "Change authorization",
+        "add-button": "Add",
+        "cancel-button": "Cancel",
+        "user": "User",
+        "add-label-user": "Add user",
+        "edit-label-user": "Edit user",
+        "delete-label-user": "Delete user",
+        "delete-label-alert-user": "Are you sure you want to delete this user?",
+        "profile": "Profile",
+        "name": "Name",
+        "matricula": "Registration",
+        "celula": "Cell",
+        "cargo": "Office",
+        "associate-director": "Associate director",
+        "modulo-diretor": "Manager director",
+        "modulo-gestor": "Manager module",
+        "modulo-analista": "Analyst module",
+        "modulo-gestao": "Management module"
+    }
+}
